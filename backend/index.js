@@ -4,6 +4,9 @@ import pg from 'pg';
 import env from "dotenv";
 import bodyParser from "body-parser";
 
+const fs = require('fs');
+const https = require('https');
+
 const app = express();
 
 const PORT = process.env.PORT || 3000;
