@@ -11,10 +11,10 @@ const Booksopen = () => {
     useEffect(() => {
         const fetchBookDetails = async () => {
             try {
-                const bookResponse = await Axios.get(`https://first-react-proj-o8de.vercel.app/api/books/${id}`);
+                const bookResponse = await Axios.get(`https://react-books-sql-api.vercel.app/api/books/${id}`);
                 setBook(bookResponse.data);
 
-                const notesResponse = await Axios.get(`https://first-react-proj-o8de.vercel.app/api/books/${id}/notes`);
+                const notesResponse = await Axios.get(`https://react-books-sql-api.vercel.app/api/books/${id}/notes`);
                 setNotes(notesResponse.data);
             } catch (error) {
                 console.error('Error fetching book details:', error);
@@ -27,7 +27,7 @@ const Booksopen = () => {
     if (!book) return <div>Loading...</div>;
 
     function deleteBook() {
-        Axios.delete(`http://localhost:3000/api/books/${id}`)
+        Axios.delete(`https://react-books-sql-api.vercel.app/api/books/${id}`)
             .then(() => {
                 window.location.href = '/';
             })
@@ -62,7 +62,7 @@ const Booksopen = () => {
                             onClick={() => {
                                 const updatedNote = prompt('Edit note:', note.notes);
                                 if (updatedNote) {
-                                    Axios.put(`https://first-react-proj-o8de.vercel.app/api/books/${note.id}`, {
+                                    Axios.put(`https://react-books-sql-api.vercel.app/api/books/${note.id}`, {
                                         notes: updatedNote
                                     })
                                         .then(() => {
