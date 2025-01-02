@@ -20,7 +20,7 @@ const BookForm = () => {
     e.preventDefault();
     try {
       const response = await axios.get(`https://openlibrary.org/search.json?q=${encodeURIComponent(searchQuery)}`);
-      setSearchResults(response.data.docs.slice(0, 5)); // Limit to first 5 results
+      setSearchResults(response.data.docs.slice(0, 5)); 
     } catch (error) {
       console.error('Error searching books:', error);
     }
@@ -45,7 +45,7 @@ const BookForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post('https://first-react-proj-o8de.vercel.app/api/books', formData);
+    await axios.post('https://react-books-sql-api.vercel.app/api/books', formData);
     window.location.href = '/';
   };
 
