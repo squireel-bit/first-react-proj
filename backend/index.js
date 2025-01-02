@@ -12,7 +12,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(cors({'first-react-proj-kappa.vercel.app'}));
 app.use(bodyParser.json());
 
 // PostgreSQL client setup
