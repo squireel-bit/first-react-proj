@@ -4,8 +4,8 @@ import pg from 'pg';
 import env from "dotenv";
 import bodyParser from "body-parser";
 
-const fs = require('fs');
-const https = require('https');
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 
 const app = express();
 
@@ -17,9 +17,11 @@ app.use(bodyParser.json());
 
 
 
-const db = new pg.Client({
-  connectionString: process.env.POSTGRES_URL + "?sslmode=require",
-});
+const db = new pg.Client(({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false, 
+  },});
 db.connect();
 
 // Routes
