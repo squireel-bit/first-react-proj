@@ -8,7 +8,7 @@ const Books = () => {
     const [books, setBooks] = useState([]);
 
     const fetchBooks = async () => {
-        const { data } = await Axios.get('https://first-react-proj-o8de.vercel.app/api/books/');
+        const { data } = await Axios.get('https://react-books-sql-api.vercel.app/api/books/');
         setBooks(data);
 
     };
