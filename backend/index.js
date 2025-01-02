@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 // PostgreSQL client setup
 const db = new pg.Client({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.POSTGRES_URL,
   ssl: {
     rejectUnauthorized: false, // Disable SSL certificate validation for self-signed certs
   },
