@@ -8,10 +8,7 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.use(cors({
-    origin: 'https://first-react-proj-kappa.vercel.app/',
-    methods: ['GET', 'POST', 'PUT', 'DELETE']
-}));
+app.use(cors());
 env.config();
 app.use(bodyParser.json());
 
