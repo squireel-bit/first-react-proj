@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 
 const db = new pg.Client({
-  connectionString: process.env.POSTGRES_URL,
+  connectionString: process.env.POSTGRES_URL + "?sslmode=require",
 });
 db.connect();
 
